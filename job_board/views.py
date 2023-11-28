@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, get_object_or_404
 
 # Måste importa models för att kunna hämta data
 from .models import JobPost
@@ -14,3 +14,12 @@ def index(request):
         
     }
     return render(request, 'job_board/index.html', context)
+
+
+
+def job_detail(request, pk):
+    job_posting = get_object_or_404(JobPost, pk=pk, is_active=True)
+    context = {
+        'posting': job_posting
+    }
+    return render(request, 'job_board/detail.html', context)
