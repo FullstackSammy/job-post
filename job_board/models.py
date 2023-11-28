@@ -11,3 +11,7 @@ class JobPost(models.Model):
     company = models.CharField(max_length=100)
     salary = models.IntegerField()
     is_active = models.BooleanField(default=False)
+    
+    # Detta kommer göra så att titeln returneras istället för objectet i tex admin-sidan
+    def __str__(self):
+        return f"{self.title} | {self.company} | Active: {self.is_active}"

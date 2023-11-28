@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import index, job_detail
 
-# I denna fil har vi alla våra views som sedan importeras i urls.py filen i config-mappen.
+# I denna fil har vi alla våra views för själva appen. endast startsidan osv importeras till configens urls.py
 
 urlpatterns = [
     path('', index, name='home'),
